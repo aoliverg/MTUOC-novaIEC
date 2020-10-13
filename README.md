@@ -23,6 +23,6 @@ To convert the file exemples-antiga.txt to exemples-nova.txt:
 python3 modificaIEC.py exemples-antiga.txt exemples-nova.txt
 ```
 
-##License
+## License
 
 This program is under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
