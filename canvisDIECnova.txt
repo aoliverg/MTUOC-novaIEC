@@ -295,7 +295,7 @@ eradicaria	erradicaria
 eradicaríem	erradicaríem
 eradicarien	erradicarien
 eradicaries	erradicaries
-eradicaríeu	erradicarríeu
+eradicaríeu	erradicaríeu
 eradicat	erradicat
 eradicats	erradicats
 eradicava	erradicava
