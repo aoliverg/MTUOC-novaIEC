@@ -229,6 +229,7 @@ véns	vens
 vénen	venen
 véu	veu
 #Conjugació dels verbs
+dóna	dona
 coregna	corregna
 coregnà	corregnà
 coregnada	corregnada

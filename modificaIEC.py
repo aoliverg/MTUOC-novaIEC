@@ -34,12 +34,15 @@ sortida=codecs.open(sys.argv[2],"w",encoding="utf-8")
 claus=set(canvis.keys())
 for linia in entrada:
     cat=linia.rstrip()
-    cat=cat.replace("’","'").strip()
+    cat=cat.replace("’","'") #normalitzacio apòstrof
+    cat=cat.replace("l.l","l·l") #normalitzacio l geminada
+    cat=cat.replace("L.L","L·L") #normalitzacio l geminada
+    
+    
     cattok=tokenize(cat)
     tokens=set(cattok.split(" "))
     cattok=" "+cattok+" "
     commonclaus=tokens.intersection(claus)
-    print(commonclaus)
     if len(commonclaus)>0:
         cattok2=cattok
         for cc in commonclaus:
