@@ -38,6 +38,7 @@ for linia in entrada:
     cat=linia.rstrip(os.linesep)
     leading_spaces=len(cat)-len(cat.lstrip())
     trailing_spaces=len(cat)-len(cat.rstrip())
+    cat=cat.strip()
     cat=cat.replace("’","'") #normalitzacio apòstrof
     cat=cat.replace("l.l","l·l") #normalitzacio l geminada
     cat=cat.replace("L.L","L·L") #normalitzacio l geminada
