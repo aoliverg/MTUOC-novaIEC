@@ -14,10 +14,12 @@
 #    You should have received a copy of the GNU General Public License
 #    along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+import os
 import codecs
 import sys
 from MTUOC_tokenizer_cat import tokenize
 from MTUOC_tokenizer_cat import detokenize
+import unicodedata
 
 fcanvis=codecs.open("canvisDIECnova.txt","r",encoding="utf-8")
 
@@ -33,12 +35,13 @@ sortida=codecs.open(sys.argv[2],"w",encoding="utf-8")
 
 claus=set(canvis.keys())
 for linia in entrada:
-    cat=linia.rstrip()
+    cat=linia.rstrip(os.linesep)
+    leading_spaces=len(cat)-len(cat.lstrip())
+    trailing_spaces=len(cat)-len(cat.rstrip())
     cat=cat.replace("’","'") #normalitzacio apòstrof
     cat=cat.replace("l.l","l·l") #normalitzacio l geminada
     cat=cat.replace("L.L","L·L") #normalitzacio l geminada
-    
-    
+    cat=unicodedata.normalize('NFC',cat)                    
     cattok=tokenize(cat)
     tokens=set(cattok.split(" "))
     cattok=" "+cattok+" "
@@ -52,6 +55,6 @@ for linia in entrada:
         cat2=detokenize(cattok2).strip()
     else:
         cat2=cat
-    
+    cat2=" "*leading_spaces+cat2+" "*trailing_spaces
     sortida.write(cat2+"\n")
     
