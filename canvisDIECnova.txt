@@ -368,3 +368,5 @@ micorizí	micorrizí
 micorizin	micorrizin
 micorizis	micorrizis
 micorizo	micorrizo
+# Added by jaumeortola
+#Paraules que s'escriuen sense accent diacrític sempre segons l'IEC
