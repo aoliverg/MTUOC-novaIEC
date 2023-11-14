@@ -3,7 +3,7 @@ MTUOC-novaIEC
 
 ## Introduction
 
-A simple script and data file to chang Catalan texts from old ortography to new othograpy. All changes have been taken from [ORTOGRAFIA Modificacions entrades DIEC2](https://www.iec.cat/llengua/documents/ORTOGRAFIA-Modificacions%20entrades%20DIEC2.pdf). Please, keep in mind that only orthographic changes have been implemented.
+A simple script and data file to change Catalan texts from old ortography to new othograpy. All changes have been taken from [ORTOGRAFIA Modificacions entrades DIEC2](https://www.iec.cat/llengua/documents/ORTOGRAFIA-Modificacions%20entrades%20DIEC2.pdf). Please, keep in mind that only orthographic changes have been implemented.
 
 The script can be useful to convert Catalan corpora to the new orthographic norms.
 
