@@ -68,6 +68,6 @@ for linia in entrada:
             cat2=detokenize(cattok2).strip()
         else:
             cat2=cat
-        cadena=cat+"\t"+L2
+        cadena=cat2+"\t"+L2
         sortida.write(cadena+"\n")
     
