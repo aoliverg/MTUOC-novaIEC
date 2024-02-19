@@ -1,5 +1,5 @@
 #    modificaIEC-PC1.py   
-#    Copyright (C) 2022  Antoni Oliver
+#    Copyright (C) 2024  Antoni Oliver
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
@@ -17,8 +17,7 @@
 import os
 import codecs
 import sys
-from MTUOC_tokenizer_cat import tokenize
-from MTUOC_tokenizer_cat import detokenize
+from MTUOC_tokenizer_cat import Tokenizer
 import unicodedata
 import argparse
 
@@ -32,6 +31,8 @@ args = parser.parse_args()
 
 fcanvis=codecs.open("canvisDIECnova.txt","r",encoding="utf-8")
 
+tokenizer=Tokenizer()
+
 canvis={}
 for linia in fcanvis:
     linia=linia.rstrip()
@@ -41,6 +42,8 @@ for linia in fcanvis:
 
 entrada=codecs.open(args.infile,"r",encoding="utf-8")
 sortida=codecs.open(args.outfile,"w",encoding="utf-8")
+
+tokenizer=Tokenizer()
 
 claus=set(canvis.keys())
 for linia in entrada:
@@ -55,7 +58,7 @@ for linia in entrada:
         cat=cat.replace("l.l","l·l") #normalitzacio l geminada
         cat=cat.replace("L.L","L·L") #normalitzacio l geminada
         cat=unicodedata.normalize('NFC',cat)                    
-        cattok=tokenize(cat)
+        cattok=tokenizer.tokenize(cat)
         tokens=set(cattok.split(" "))
         cattok=" "+cattok+" "
         commonclaus=tokens.intersection(claus)
@@ -65,7 +68,7 @@ for linia in entrada:
                 cattok2=cattok2.replace(" "+cc+" "," "+canvis[cc]+" ")
                 cattok2=cattok2.replace(" "+cc.upper()+" "," "+canvis[cc].upper()+" ")
                 cattok2=cattok2.replace(" "+cc.capitalize()+" "," "+canvis[cc].capitalize()+" ")
-            cat2=detokenize(cattok2).strip()
+            cat2=tokenizer.detokenize(cattok2).strip()
         else:
             cat2=cat
         cadena=cat2+"\t"+L2

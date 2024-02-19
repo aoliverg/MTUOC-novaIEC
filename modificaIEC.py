@@ -1,5 +1,5 @@
 #    modificaIEC.py   
-#    Copyright (C) 2020  Antoni Oliver
+#    Copyright (C) 2024  Antoni Oliver
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
@@ -17,8 +17,7 @@
 import os
 import codecs
 import sys
-from MTUOC_tokenizer_cat import tokenize
-from MTUOC_tokenizer_cat import detokenize
+from MTUOC_tokenizer_cat import Tokenizer
 import unicodedata
 
 fcanvis=codecs.open("canvisDIECnova.txt","r",encoding="utf-8")
@@ -33,6 +32,8 @@ for linia in fcanvis:
 entrada=codecs.open(sys.argv[1],"r",encoding="utf-8")
 sortida=codecs.open(sys.argv[2],"w",encoding="utf-8")
 
+tokenizer=Tokenizer()
+
 claus=set(canvis.keys())
 for linia in entrada:
     cat=linia.rstrip(os.linesep)
@@ -43,7 +44,7 @@ for linia in entrada:
     cat=cat.replace("l.l","l·l") #normalitzacio l geminada
     cat=cat.replace("L.L","L·L") #normalitzacio l geminada
     cat=unicodedata.normalize('NFC',cat)                    
-    cattok=tokenize(cat)
+    cattok=tokenizer.tokenize(cat)
     tokens=set(cattok.split(" "))
     cattok=" "+cattok+" "
     commonclaus=tokens.intersection(claus)
@@ -53,7 +54,7 @@ for linia in entrada:
             cattok2=cattok2.replace(" "+cc+" "," "+canvis[cc]+" ")
             cattok2=cattok2.replace(" "+cc.upper()+" "," "+canvis[cc].upper()+" ")
             cattok2=cattok2.replace(" "+cc.capitalize()+" "," "+canvis[cc].capitalize()+" ")
-        cat2=detokenize(cattok2).strip()
+        cat2=tokenizer.detokenize(cattok2).strip()
     else:
         cat2=cat
     cat2=" "*leading_spaces+cat2+" "*trailing_spaces
