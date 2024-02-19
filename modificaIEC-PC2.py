@@ -60,7 +60,7 @@ for linia in entrada:
         else:
             cat2=cat
         cat2=" "*leading_spaces+cat2+" "*trailing_spaces
-        cadena=spa+"\t"+cat
+        cadena=spa+"\t"+cat2
         sortida.write(cadena+"\n")
     except:
         print("ERROR",sys.exc_info()[0])
