@@ -20,7 +20,8 @@ import sys
 from MTUOC_tokenizer_cat import Tokenizer
 import unicodedata
 
-fcanvis=codecs.open("canvisDIECnova.txt","r",encoding="utf-8")
+
+fcanvis=codecs.open(os.path.join(os.path.dirname(os.path.realpath(__file__)), "canvisDIECnova.txt"),"r",encoding="utf-8")
 
 canvis={}
 for linia in fcanvis:
