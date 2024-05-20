@@ -71,6 +71,6 @@ for linia in entrada:
             cat2=tokenizer.detokenize(cattok2).strip()
         else:
             cat2=cat
-        cadena=cat2+"\t".join(camps[1:])
+        cadena=cat2+"\t"+"\t".join(camps[1:])
         sortida.write(cadena+"\n")
     
