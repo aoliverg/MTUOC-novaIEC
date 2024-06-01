@@ -43,7 +43,7 @@ for linia in entrada:
         leading_spaces=len(cat)-len(cat.lstrip())
         trailing_spaces=len(cat)-len(cat.rstrip())
         cat=cat.strip()
-        cat=cat.replace("’","'") #normalitzacio apòstrof
+        #cat=cat.replace("’","'") #normalitzacio apòstrof
         cat=cat.replace("l.l","l·l") #normalitzacio l geminada
         cat=cat.replace("L.L","L·L") #normalitzacio l geminada
         cat=unicodedata.normalize('NFC',cat)                    
