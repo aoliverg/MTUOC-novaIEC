@@ -54,7 +54,7 @@ for linia in entrada:
         L2=camps[1]
 
         cat=cat.strip()
-        cat=cat.replace("’","'") #normalitzacio apòstrof
+        #cat=cat.replace("’","'") #normalitzacio apòstrof
         cat=cat.replace("l.l","l·l") #normalitzacio l geminada
         cat=cat.replace("L.L","L·L") #normalitzacio l geminada
         cat=unicodedata.normalize('NFC',cat)                    
